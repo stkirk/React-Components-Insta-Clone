@@ -22,6 +22,13 @@ const App = () => {
   const [ searchTerm, setSearchTerm] = useState(" ");
 
   const likePost = postId => {
+    setPosts(
+      posts.map(post =>{
+        if (postId === post.id){
+          return {...post, likes: post.likes + 1}
+        }else return post;
+      })
+    )
     /*
       This function serves the purpose of increasing the number of likes by one, of the post with a given id.
 
